@@ -39,17 +39,24 @@ if not hasattr(enum, "StrEnum"):
     from strenum import StrEnum as _StrEnumBackport  # type: ignore
     enum.StrEnum = _StrEnumBackport  # type: ignore[attr-defined]
 
+import gemini_webapi.exceptions as _gex
 from gemini_webapi import ChatSession, GeminiClient
 from gemini_webapi.constants import AccountStatus, Model
 from gemini_webapi.exceptions import (
     APIError,
     AuthError,
     GeminiError,
-    TemporarilyBlocked,
-    UsageLimitExceeded,
 )
 from gemini_webapi.exceptions import (
     TimeoutError as GeminiTimeoutError,
+)
+
+# gemini_webapi 2.1+ renamed *Error suffixes; keep aliases for both 2.0 and 2.1+.
+TemporarilyBlocked = getattr(_gex, "TemporarilyBlocked", None) or getattr(
+    _gex, "TemporarilyBlockedError"
+)
+UsageLimitExceeded = getattr(_gex, "UsageLimitExceeded", None) or getattr(
+    _gex, "UsageLimitExceededError"
 )
 
 from generators.prompts import (
