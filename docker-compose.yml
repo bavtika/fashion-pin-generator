@@ -1,0 +1,23 @@
+# Local / VPS stack for the human-in-the-loop pin pipeline.
+# Secrets stay in .env (never committed). Runtime state mounts into ./data.
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fashion-pin-bot:local
+    container_name: fashion-pin-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Reach Dolphin Anty on the host when DOLPHIN_PROFILE_ID is set
+      DOLPHIN_API: ${DOLPHIN_API:-http://host.docker.internal:3001/v1.0}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - ./data:/app/data
+      - ./reference:/app/reference
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    # No published ports — Telegram uses outbound long-polling only.

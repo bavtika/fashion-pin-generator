@@ -1,0 +1,58 @@
+# Secrets & local config
+.env
+.env.*
+!.env.example
+
+# Runtime data (logs, DB, cookies, sessions, generated images)
+data/*
+!data/.gitkeep
+
+# Personal / scraped media
+reference/styles/*
+!reference/styles/.gitkeep
+reference/model/*
+!reference/model/.gitkeep
+reference/model.jpg
+reference/*.jpg
+reference/*.jpeg
+reference/*.png
+reference/*.webp
+
+# Session caches outside data/
+generators/data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Archives & IDE
+*.zip
+*.tar.gz
+*.7z
+.idea/
+.vscode/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local DBs / logs anywhere
+*.db
+*.sqlite
+*.sqlite3
+*.log

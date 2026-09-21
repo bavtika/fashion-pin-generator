@@ -1,0 +1,11 @@
+python-telegram-bot>=21.0.0
+playwright>=1.40.0
+Pillow>=10.0.0
+python-dotenv>=1.0.0
+httpx>=0.25.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+mediapipe>=0.10.30
+gemini_webapi>=2.0.0
+browser-cookie3>=0.20.0
+StrEnum>=0.4.15; python_version < "3.11"

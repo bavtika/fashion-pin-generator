@@ -1,0 +1,10 @@
+# Ruff — keep CI green without rewriting the whole codebase at once.
+line-length = 100
+target-version = "py311"
+
+[lint]
+select = ["E", "F", "I", "W"]
+ignore = [
+    "E501",  # line length — gradual cleanup
+    "E402",  # sys.path / logging bootstrap before local imports
+]
