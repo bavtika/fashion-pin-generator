@@ -30,6 +30,7 @@ echo 3. Run: python generators\save_gemini_session.py   (login to Gemini)
 echo    Or:  save_gemini_session.bat
 echo 4. Run: python pinterest\save_session.py   (login to Pinterest)
 echo 5. Run: python main.py
+echo    Or:  docker compose up -d --build
 echo.
 echo Bot logs: data\bot.log
 echo.
