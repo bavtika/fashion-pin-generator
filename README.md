@@ -2,8 +2,6 @@
 
 Human-in-the-loop pipeline that scrapes outfit references, generates try-on style images with Gemini, stores state in SQLite, and routes candidates to a Telegram review UI (approve / regen / pose / custom prompt).
 
-Built as a **DevOps-ready automation lab**: containerized runtime, Compose for VPS deploy, GitHub Actions CI (lint + unit tests + image build), env-based config, and secret-safe logging.
-
 > No auto-posting to Pinterest. An operator always reviews before anything leaves the queue.
 
 ---
@@ -135,18 +133,6 @@ GitHub Actions on `main` / PRs:
 - Logs redact Telegram bot tokens in request URLs.  
 - Scraping / unofficial Gemini clients may conflict with third-party ToS — use only for personal lab accounts you control.  
 - Do not commit face photos, session JSON, or `.env`.
-
----
-
-## CV / portfolio notes
-
-Useful talking points for a DevOps interview:
-
-- End-to-end **automation pipeline** with backpressure (pending queue limit)  
-- **12-factor** config, secret hygiene, token-redacting logs  
-- **Docker multi-stage style image**, non-root user, healthcheck, Compose for VPS  
-- **CI gate**: lint + tests + reproducible image build  
-- Clear separation of scrape / generate / review stages  
 
 ---
 
